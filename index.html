@@ -1,0 +1,292 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>GradeWise - Academic Classification Checker</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <header>
+        <div class="logo">
+            <h3>GradeWise</h3>
+            <p>Smart Grading, Simplified.</p>
+        </div>
+
+        <nav>
+            <a href="#">Home</a>
+            <a href="#grading-scales">Grading Scales</a>
+            <a href="#about">About</a>
+            <a href="#checker">Get Started</a>
+        </nav>
+    </header>
+
+
+    <!-- Main Calculator -->
+    <section class="main-section" id="checker">
+
+        <div class="calculator">
+
+            <p class="small-heading">YOUR ACADEMIC COMPANION</p>
+
+            <h2>Academic Classification Checker</h2>
+
+            <p class="description">
+                Find out where you stand academically.
+                Enter your score, GPA or CGPA to discover your classification.
+            </p>
+
+
+            <!-- Input Section -->
+            <div class="input-section">
+
+                <div class="input-group">
+
+                    <label>Educational Level</label>
+
+                    <select id="educationLevel" onchange="changeLevel()">
+
+                        <option value="primary">Primary School</option>
+
+                        <option value="secondary" selected>
+                            Secondary School
+                        </option>
+
+                        <option value="polytechnic">Polytechnic</option>
+
+                        <option value="university">University</option>
+
+                        <option value="college">College of Education</option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="input-group">
+
+                    <label id="scoreLabel">Total Score (0 - 100)</label>
+
+                    <input
+                        type="number"
+                        id="studentScore"
+                        placeholder="Enter your score"
+                        step="any"
+                    >
+
+                </div>
+
+            </div>
+
+
+            <!-- Buttons -->
+            <div class="buttons">
+
+                <button onclick="checkClassification()">
+                    Check My Classification
+                </button>
+
+                <button class="secondary-button" onclick="showScales()">
+                    View Grading Scale
+                </button>
+
+            </div>
+
+
+            <!-- Result Section -->
+            <div class="result-section">
+
+                <h4>🎓 Your Academic Standing</h4>
+
+                <p class="result-description">
+                    Your result will appear here.
+                </p>
+
+                <div class="result-details">
+
+                    <div>
+                        <p>Student's Score / CGPA</p>
+                        <h3 id="displayScore">--</h3>
+                    </div>
+
+                    <div>
+                        <p>Classification</p>
+                        <h3 id="classification">--</h3>
+                    </div>
+
+                    <div>
+                        <p>Comment</p>
+                        <h3 id="comment">--</h3>
+                    </div>
+
+                </div>
+
+                <p id="errorMessage"></p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Grading Scales -->
+    <section class="grading-section" id="grading-scales">
+
+        <p class="small-heading">KNOW WHAT YOUR SCORE MEANS</p>
+
+        <h2>Grading Scales</h2>
+
+        <p class="description">
+            Refer to the scales below to understand each result.
+        </p>
+
+
+        <div class="scale-container">
+
+            <!-- Primary School -->
+            <div class="scale-card">
+
+                <h3>Primary School</h3>
+
+                <table>
+                    <tr>
+                        <th>Score</th>
+                        <th>Grade</th>
+                        <th>Description</th>
+                    </tr>
+
+                    <tr><td>70 - 100</td><td>A</td><td>Excellent</td></tr>
+                    <tr><td>60 - 69</td><td>B</td><td>Very Good</td></tr>
+                    <tr><td>50 - 59</td><td>C</td><td>Good</td></tr>
+                    <tr><td>40 - 49</td><td>D</td><td>Pass</td></tr>
+                    <tr><td>0 - 39</td><td>F</td><td>Needs Improvement</td></tr>
+                </table>
+
+            </div>
+
+
+            <!-- Secondary School -->
+            <div class="scale-card">
+
+                <h3>Secondary School</h3>
+
+                <table>
+                    <tr>
+                        <th>Score</th>
+                        <th>Grade</th>
+                        <th>Description</th>
+                    </tr>
+
+                    <tr><td>70 - 100</td><td>A</td><td>Excellent</td></tr>
+                    <tr><td>60 - 69</td><td>B</td><td>Very Good</td></tr>
+                    <tr><td>50 - 59</td><td>C</td><td>Good</td></tr>
+                    <tr><td>45 - 49</td><td>D</td><td>Fair</td></tr>
+                    <tr><td>40 - 44</td><td>E</td><td>Pass</td></tr>
+                    <tr><td>0 - 39</td><td>F</td><td>Fail</td></tr>
+                </table>
+
+            </div>
+
+
+            <!-- Polytechnic -->
+            <div class="scale-card">
+
+                <h3>Polytechnic (4.0 Scale)</h3>
+
+                <table>
+                    <tr>
+                        <th>GPA</th>
+                        <th>Classification</th>
+                    </tr>
+
+                    <tr><td>3.50 - 4.00</td><td>Distinction</td></tr>
+                    <tr><td>3.00 - 3.49</td><td>Upper Credit</td></tr>
+                    <tr><td>2.50 - 2.99</td><td>Lower Credit</td></tr>
+                    <tr><td>2.00 - 2.49</td><td>Pass</td></tr>
+                    <tr><td>0 - 1.99</td><td>Fail</td></tr>
+                </table>
+
+            </div>
+
+
+            <!-- University -->
+            <div class="scale-card">
+
+                <h3>University (5.0 Scale)</h3>
+
+                <table>
+                    <tr>
+                        <th>CGPA</th>
+                        <th>Classification</th>
+                    </tr>
+
+                    <tr><td>4.50 - 5.00</td><td>First Class</td></tr>
+                    <tr><td>3.50 - 4.49</td><td>Second Class Upper</td></tr>
+                    <tr><td>2.40 - 3.49</td><td>Second Class Lower</td></tr>
+                    <tr><td>1.50 - 2.39</td><td>Third Class</td></tr>
+                    <tr><td>1.00 - 1.49</td><td>Pass</td></tr>
+                    <tr><td>0 - 0.99</td><td>Fail</td></tr>
+                </table>
+
+            </div>
+
+
+            <!-- College of Education -->
+            <div class="scale-card">
+
+                <h3>College of Education (5.0 Scale)</h3>
+
+                <table>
+                    <tr>
+                        <th>CGPA</th>
+                        <th>Classification</th>
+                    </tr>
+
+                    <tr><td>4.50 - 5.00</td><td>Distinction</td></tr>
+                    <tr><td>3.50 - 4.49</td><td>Upper Credit</td></tr>
+                    <tr><td>2.40 - 3.49</td><td>Lower Credit</td></tr>
+                    <tr><td>1.50 - 2.39</td><td>Pass</td></tr>
+                    <tr><td>0 - 1.49</td><td>Below Pass</td></tr>
+                </table>
+
+            </div>
+
+        </div>
+
+        <p class="note">
+            Note: These are sample grading scales for this project.
+            Actual grading requirements may differ between institutions.
+        </p>
+
+    </section>
+
+
+    <!-- About Section -->
+    <section class="about-section" id="about">
+
+        <h2>About GradeWise</h2>
+
+        <p>
+            GradeWise is a simple academic classification tool
+            designed to help students understand their academic
+            performance across different educational levels.
+        </p>
+
+    </section>
+
+
+    <footer>
+        <p>GradeWise &copy; 2026. All Rights Reserved.</p>
+    </footer>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>
