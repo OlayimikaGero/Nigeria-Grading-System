@@ -15,7 +15,7 @@ body {
     color: #202b40;
 }
 
-/* Navigation */
+
 
 header {
     display: flex;
@@ -26,7 +26,7 @@ header {
 }
 
 .logo h3 {
-    color: #245ac7;
+    color: #36cc5c;
 }
 
 .logo p {
@@ -88,7 +88,8 @@ nav a:hover {
     margin-top: 10px;
 }
 
-/* Input Fields */
+
+
 
 .input-section {
     display: flex;
@@ -120,7 +121,8 @@ input:focus, select:focus {
     border-color: #2864d7;
 }
 
-/* Buttons */
+
+
 
 .buttons {
     display: flex;

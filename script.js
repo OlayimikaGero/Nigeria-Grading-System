@@ -178,7 +178,6 @@ function checkClassification() {
     }
 
 
-    // Secondary School Classification
 
     else if (level === "secondary") {
 
@@ -233,7 +232,7 @@ function checkClassification() {
     }
 
 
-    // Polytechnic Classification
+
 
     else if (level === "polytechnic") {
 
